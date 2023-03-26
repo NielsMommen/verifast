@@ -1,6 +1,6 @@
 #pragma once
 
-#include "stubs_ast.capnp.h"
+#include "cxx_stubs_ast.capnp.h"
 #include "clang/Basic/FileManager.h"
 #include "clang/Basic/SourceManager.h"
 

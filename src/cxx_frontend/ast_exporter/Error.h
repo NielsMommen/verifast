@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Util.h"
-#include "stubs_ast.capnp.h"
+#include "cxx_stubs_ast.capnp.h"
 #include "clang/Basic/SourceLocation.h"
 #include "llvm/ADT/SmallVector.h"
 #include "llvm/Support/raw_ostream.h"

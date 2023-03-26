@@ -1,0 +1,8 @@
+(library
+ (name cxx_fe)
+ (preprocess
+  (per_module
+   ((action
+     (run camlp4o %{input-file}))
+    annotation_parser)))
+ (libraries ast parsing capnp cxx_stubs_ast capnp.unix))

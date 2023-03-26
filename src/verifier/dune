@@ -1,0 +1,3 @@
+(library
+ (name verifier)
+ (libraries util ast prover stats parsing java_fe cxx_fe))

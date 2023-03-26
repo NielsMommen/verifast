@@ -1,0 +1,23 @@
+(library
+ (name vfconfig)
+ (modules vfconfig)
+ (libraries))
+
+(executable
+ (name gen_vfconfig)
+ (modules gen_vfconfig)
+ (libraries dune-configurator platform))
+
+(rule
+ (deps
+  (env_var NOZ3)
+  (env_var Z3V4DOT5)
+  (:gen gen_vfconfig.exe))
+ ;; detect env changes
+ (targets vfconfig.ml)
+ (mode promote)
+ (action
+  (run
+   ./%{gen}
+   -no_z3=%{env:NOZ3=false}
+   -z3.4.5=%{env:Z3V4DOT5=true})))

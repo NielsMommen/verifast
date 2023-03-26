@@ -1,0 +1,61 @@
+(executable
+ (name vfconsole)
+ (public_name verifast)
+ (modules vfconsole)
+ (libraries util ast parsing verifier json vf_sexpr register_plugins))
+
+(executable
+ (name main_class)
+ (public_name main_class)
+ (modules main_class)
+ (libraries))
+
+(executable
+ (name java_card_applet)
+ (public_name java_card_applet)
+ (modules java_card_applet)
+ (libraries))
+
+(executable
+ (name dlsymtool)
+ (public_name dlsymtool)
+ (modules dlsymtool)
+ (libraries))
+
+(executable
+ (name vfstrip)
+ (public_name vfstrip)
+ (modules vfstrip)
+ (libraries))
+
+(executable
+ (name vfide)
+ (public_name vfide)
+ (modules vfide)
+ (libraries
+  util
+  ast
+  parsing
+  verifier
+  lablgtk2
+  shape_analysis
+  vfconfig
+  branch_png
+  linemarks
+  lablgtk2.sourceview2
+  register_plugins))
+
+(executable
+ (name explorer)
+ (public_name explorer)
+ (modules explorer)
+ (preprocess
+  (action
+   (run camlp4o %{input-file})))
+ (libraries ast parsing register_plugins))
+
+(executable
+ (name mysh)
+ (public_name mysh)
+ (modules mysh)
+ (libraries threads vfconfig))

@@ -1,0 +1,3 @@
+(library
+ (name shape_analysis)
+ (libraries ast parsing))

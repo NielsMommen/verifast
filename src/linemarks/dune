@@ -1,0 +1,36 @@
+(rule
+ (alias vala-linemarks)
+ (deps linemarks.vala mystuff.vapi)
+ (target linemarks.c)
+ (mode promote)
+ (action
+  (run
+   valac
+   --enable-deprecated
+   --vapidir
+   .
+   -C
+   -H
+   linemarks.h
+   --pkg
+   gtksourceview-2.0
+   %{deps})))
+
+(library
+ (name linemarks)
+ (libraries lablgtk2)
+ (modules GtkLineMarks GLineMarks)
+ (flags :standard -w -6-10)
+ ; Pass flags to c compiler when constructing the library
+ ; archive file for the C stubs. E.g. to pass -lbar to the linker.
+ ; See flags directory for the generated flags (lflags.sexp)
+ (c_library_flags
+  (:standard
+   (:include flags/lflags.sexp)))
+ ; See flags directory for the generated flags (cflags.sexp).
+ (foreign_stubs
+  (language c)
+  (flags
+   (:standard -w)
+   (:include flags/cflags.sexp))
+  (names linemarks ml_GtkLineMarks)))

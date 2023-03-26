@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Annotation.h"
-#include "stubs_ast.capnp.h"
+#include "cxx_stubs_ast.capnp.h"
 #include "clang/Basic/FileManager.h"
 #include "clang/Lex/Preprocessor.h"
 #include "llvm/ADT/SmallVector.h"

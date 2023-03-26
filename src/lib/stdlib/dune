@@ -1,0 +1,54 @@
+(rule
+ (deps list.gh)
+ (target list.vfmanifest)
+ (action
+  (run verifast -c -emit_vfmanifest %{dep:list.c})))
+
+(rule
+ (deps listex.gh)
+ (target listex.vfmanifest)
+ (action
+  (run verifast -c -emit_vfmanifest %{dep:listex.c})))
+
+(rule
+ (deps raw_ghost_lists.gh)
+ (target raw_ghost_lists.vfmanifest)
+ (action
+  (run verifast -c -emit_vfmanifest %{dep:raw_ghost_lists.c})))
+
+(rule
+ (deps strong_ghost_lists.gh)
+ (target strong_ghost_lists.vfmanifest)
+ (action
+  (run verifast -c -emit_vfmanifest %{dep:strong_ghost_lists.c})))
+
+(rule
+ (deps arrays.gh)
+ (target arrays.vfmanifest)
+ (action
+  (run verifast -c -emit_vfmanifest %{dep:arrays.c})))
+
+(rule
+ (deps quantifiers.gh)
+ (target quantifiers.vfmanifest)
+ (action
+  (run verifast -c -emit_vfmanifest %{dep:quantifiers.c})))
+
+(rule
+ (deps assoclist.gh)
+ (target assoclist.vfmanifest)
+ (action
+  (run verifast -c -emit_vfmanifest %{dep:assoclist.c})))
+
+(rule
+ (deps bitops.gh)
+ (target bitops.vfmanifest)
+ (action
+  (run verifast -c -prover z3v4.5 -emit_vfmanifest %{dep:bitops.c})))
+
+(install
+ (section bin)
+ (files
+  (glob_files *.vfmanifest)
+  (glob_files *.gh)
+  (glob_files *.c)))

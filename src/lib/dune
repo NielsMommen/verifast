@@ -1,0 +1,3 @@
+(install
+ (section bin)
+ (files (glob_files *.h) (glob_files *.gh)))

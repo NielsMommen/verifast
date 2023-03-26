@@ -1,0 +1,34 @@
+(env
+ (_
+  (flags
+   (:standard -g -w -8 -w -55))))
+
+(executable
+ (name compile_cxx_stubs)
+ (modules compile_cxx_stubs)
+ (libraries dune-configurator platform))
+
+(rule
+ (deps cxx_stubs_ast.capnp)
+ (alias gen_cxx_stubs_ml)
+ (targets
+  cxx_stubs_ast.ml
+  cxx_stubs_ast.mli)
+ (mode promote)
+ (action
+  (run ./%{dep:compile_cxx_stubs.exe} -ocaml)))
+
+(rule
+ (deps cxx_stubs_ast.capnp)
+ (alias gen_cxx_stubs_cxx)
+ (targets
+  cxx_stubs_ast.capnp.h
+  cxx_stubs_ast.capnp.c++)
+ (mode promote)
+ (action
+  (run ./%{dep:compile_cxx_stubs.exe} -c++)))
+
+(library
+ (name cxx_stubs_ast)
+ (modules cxx_stubs_ast)
+ (libraries capnp))

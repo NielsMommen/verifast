@@ -1,0 +1,9 @@
+(library
+ (name java_fe)
+ (preprocess
+  (per_module
+   ((action
+     (run camlp4o %{input-file}))
+    ast_translator
+    ast_reader)))
+ (libraries ast parsing threads str))

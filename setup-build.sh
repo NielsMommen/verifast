@@ -47,8 +47,8 @@ if [ $(uname -s) = "Linux" ]; then
   dl_and_unzip_llvm-clang Linux ab42b50fd7fbd59254d3a8aef5473a5c6ceb9ca3508f31c76d95ee5d31268291
   dl_and_unzip_vfdeps https://github.com/verifast/vfdeps/releases/download/21.11/$VFDEPS_NAME-linux.txz a4298c2ba2d969197db0c47379630223a2d282fe40394d22a708709a
 
-  cd $script_dir/src/cxx_frontend/ast_exporter/build
-  cmake -DLLVM_INSTALL_DIR=/tmp/vf-llvm-clang-build-$VF_LLVM_CLANG_BUILD_VERSION -DVFDEPS=/tmp/$VFDEPS_NAME -DCMAKE_BUILD_TYPE=Release ..
+  cd $script_dir/src/cxx_frontend/ast_exporter
+  cmake -S . -B build -G Ninja -DLLVM_INSTALL_DIR=/tmp/vf-llvm-clang-build-$VF_LLVM_CLANG_BUILD_VERSION -DVFDEPS=/tmp/$VFDEPS_NAME -DCMAKE_BUILD_TYPE=Release
 
 
 elif [ $(uname -s) = "Darwin" ]; then
@@ -79,8 +79,8 @@ elif [ $(uname -s) = "Darwin" ]; then
   dl_and_unzip_llvm-clang MacOS 365648cc3fea920b49dc262b13a19d64896d873c1ceaa40d3da37c71c8201168
   dl_and_unzip_vfdeps https://github.com/verifast/vfdeps/releases/download/21.11/$VFDEPS_NAME-macos.txz f47a09659ab3a699ba63daaa666e0ee9fc4fe28a3b186c0badc8834a
 
-  cd $script_dir/src/cxx_frontend/ast_exporter/build
-  cmake -DLLVM_INSTALL_DIR=/usr/local/vf-llvm-clang-build-$VF_LLVM_CLANG_BUILD_VERSION -DVFDEPS=/usr/local/$VFDEPS_NAME -DCMAKE_BUILD_TYPE=Release ..
+  cd $script_dir/src/cxx_frontend/ast_exporter
+  cmake -S . -B build -G Ninja -DLLVM_INSTALL_DIR=/usr/local/vf-llvm-clang-build-$VF_LLVM_CLANG_BUILD_VERSION -DVFDEPS=/usr/local/$VFDEPS_NAME -DCMAKE_BUILD_TYPE=Release
   
 else
   echo "Your OS is not supported by this script."

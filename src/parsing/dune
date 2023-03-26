@@ -1,0 +1,6 @@
+(library
+ (name parsing)
+ (preprocess
+  (action
+   (run camlp4o %{input-file})))
+ (libraries util num stats camlp-streams))

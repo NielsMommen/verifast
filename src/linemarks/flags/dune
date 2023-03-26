@@ -1,0 +1,12 @@
+(executable
+ (name gen_flags)
+ (libraries dune-configurator platform))
+
+(rule
+ (alias gen_linemark_flags)
+ (deps
+  (:gen gen_flags.exe))
+ (targets cflags.sexp lflags.sexp)
+ (mode promote)
+ (action
+  (run ./%{gen})))
