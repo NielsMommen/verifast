@@ -4,7 +4,7 @@ export NOZ3						?= false
 export Z3V4DOT5					?= true
 
 build: build-vf-cxx-ast-exporter
-	dune build --profile release
+	dune build --profile release --verbose
 
 build-vf-cxx-ast-exporter:
 	make -C src/cxx_frontend/ast_exporter build

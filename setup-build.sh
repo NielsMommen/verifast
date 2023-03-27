@@ -71,13 +71,13 @@ elif [ $(uname -s) = "Darwin" ]; then
   brewinstall vala
   brewinstall cmake
   export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
-  sudo mkdir /usr/local/$VFDEPS_NAME
-  sudo mkdir /usr/local/vf-llvm-clang-build-$VF_LLVM_CLANG_BUILD_VERSION
+  #sudo mkdir /usr/local/$VFDEPS_NAME
+  #sudo mkdir /usr/local/vf-llvm-clang-build-$VF_LLVM_CLANG_BUILD_VERSION
   sudo chown -R $(whoami):admin /usr/local/*
 
   cd /usr/local
-  dl_and_unzip_llvm-clang MacOS 365648cc3fea920b49dc262b13a19d64896d873c1ceaa40d3da37c71c8201168
-  dl_and_unzip_vfdeps https://github.com/verifast/vfdeps/releases/download/21.11/$VFDEPS_NAME-macos.txz f47a09659ab3a699ba63daaa666e0ee9fc4fe28a3b186c0badc8834a
+  #dl_and_unzip_llvm-clang MacOS 365648cc3fea920b49dc262b13a19d64896d873c1ceaa40d3da37c71c8201168
+  #dl_and_unzip_vfdeps https://github.com/verifast/vfdeps/releases/download/21.11/$VFDEPS_NAME-macos.txz f47a09659ab3a699ba63daaa666e0ee9fc4fe28a3b186c0badc8834a
 
   cd $script_dir/src/cxx_frontend/ast_exporter
   cmake -S . -B build -G Ninja -DLLVM_INSTALL_DIR=/usr/local/vf-llvm-clang-build-$VF_LLVM_CLANG_BUILD_VERSION -DVFDEPS=/usr/local/$VFDEPS_NAME -DCMAKE_BUILD_TYPE=Release
