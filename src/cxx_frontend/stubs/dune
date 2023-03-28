@@ -6,7 +6,7 @@
 (executable
  (name compile_cxx_stubs)
  (modules compile_cxx_stubs)
- (libraries dune-configurator platform))
+ (libraries dune-configurator vfconfig))
 
 (rule
  (deps cxx_stubs_ast.capnp)

@@ -1,3 +1,8 @@
+(env
+ (_
+  (env-vars
+   (DYLD_LIBRARY_PATH "/usr/local/vfdeps-f01a6c3/lib:$DYLD_LIBRARY_PATH"))))
+
 (rule
  (deps list.gh)
  (target list.vfmanifest)

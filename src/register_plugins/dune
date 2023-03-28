@@ -1,6 +1,8 @@
 (library
  (name register_plugins)
  (modules register_plugins)
+ (c_library_flags
+  (:standard ("-L /usr/local/vfdeps-f01a6c3/lib")))
  (libraries plugin))
 
 (executable
@@ -10,7 +12,8 @@
 
 (rule
  (target register_plugins.ml)
- (deps (:gen gen_register_plugins.exe))
+ (deps
+  (:gen gen_register_plugins.exe))
  (mode promote)
  (action
   (run ./%{gen})))

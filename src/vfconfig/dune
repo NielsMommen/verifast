@@ -6,7 +6,7 @@
 (executable
  (name gen_vfconfig)
  (modules gen_vfconfig)
- (libraries dune-configurator platform))
+ (libraries dune-configurator))
 
 (rule
  (deps

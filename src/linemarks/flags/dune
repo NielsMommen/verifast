@@ -1,6 +1,6 @@
 (executable
  (name gen_flags)
- (libraries dune-configurator platform))
+ (libraries dune-configurator vfconfig))
 
 (rule
  (alias gen_linemark_flags)
