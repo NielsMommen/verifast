@@ -46,6 +46,12 @@
  (action
   (run verifast -c -prover z3v4.5 -emit_vfmanifest %{dep:bitops.c})))
 
+(rule
+ (deps permutations.gh)
+ (target permutations.vfmanifest)
+ (action
+  (run verifast -c -emit_vfmanifest %{dep:permutations.c})))
+
 (install
  (section bin)
  (files
