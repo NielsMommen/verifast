@@ -9,8 +9,6 @@ open Verifast
 open Arg
 open Json
 
-let () = Register_plugins.register ()
-
 let json_of_srcpos (path, line, col) = A [S path; I line; I col]
 
 let json_of_loc0 (ls, le) = A [json_of_srcpos ls; json_of_srcpos le]

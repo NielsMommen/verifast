@@ -6,7 +6,7 @@ module Zn = Z3native
 module C = Combineprovers
 module P = Proverapi
 
-let register () =
+let () =
   Verifier.Verifast.register_prover "Redux+Z3v4.5"
     "(experimental) run Redux and Z3v4.5 in sequence."
     (

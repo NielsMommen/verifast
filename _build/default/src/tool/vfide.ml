@@ -10,8 +10,6 @@ open GMain
 open Shape_analysis.Frontend
 open Vfconfig
 
-let () = Register_plugins.register ()
-
 type layout = FourThree | Widescreen
 
 let include_paths: string list ref = ref []

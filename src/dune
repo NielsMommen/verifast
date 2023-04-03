@@ -1,5 +1,14 @@
 (env
  (_
-  ; Warning 8 [partial-match]: this pattern-matching is not exhaustive
   (flags
-   (:standard -g -w -8))))
+   (:standard
+    ; generated flags, depending on OS
+    (:include %{workspace_root}/flags/ocaml_flags.sexp)
+    ; path to lib directory where libz3.{dylib,dll,so} is located
+    -cclib
+    "-L %{env:Z3_DLL_DIR=.}"
+    ; debug info
+    -g
+    ; Warning 8 [partial-match]: this pattern-matching is not exhaustive
+    -w
+    -8))))

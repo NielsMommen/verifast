@@ -31,13 +31,13 @@ let get_gtksourceview_pkg_conf c =
 
 let () =
   C.main ~args:[] ~name:"linemarks_flags" @@ fun c ->
-    let cflags, lflags = 
-      match platform with
-      | Windows -> [], []
-      | _ ->
-        let cflags = get_sys_cflags platform in
-        let gtk_conf = get_gtksourceview_pkg_conf c in
-        gtk_conf.cflags @ cflags, gtk_conf.libs
-    in
-    C.Flags.write_sexp "cflags.sexp" cflags;
-    C.Flags.write_sexp "lflags.sexp" lflags;
+  let cflags, lflags = 
+    match platform with
+    | Windows -> [], []
+    | _ ->
+      let cflags = get_sys_cflags platform in
+      let gtk_conf = get_gtksourceview_pkg_conf c in
+      gtk_conf.cflags @ cflags, gtk_conf.libs
+  in
+  C.Flags.write_sexp "cflags.sexp" cflags;
+  C.Flags.write_sexp "lflags.sexp" lflags;

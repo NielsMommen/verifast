@@ -1,0 +1,11 @@
+(executable
+ (name gen_ocaml_flags)
+ (libraries dune-configurator vfconfig))
+
+(rule
+ (deps
+  (:gen gen_ocaml_flags.exe))
+ (target ocaml_flags.sexp)
+ (mode promote)
+ (action
+  (run ./%{gen})))

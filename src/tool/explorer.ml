@@ -5,8 +5,6 @@ open Parser
 open Util
 open Arg
 
-let () = Register_plugins.register ()
-
 (* Custom types *)
 type explore_result = (loc * string) 
 type lemma = (loc * string * asn)

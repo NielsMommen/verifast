@@ -5,7 +5,7 @@ module Sp = Smtlibprover
 module P = Proverapi
 module C = Combineprovers
 
-let register () =
+let () =
   Verifier.Verifast.register_prover "Redux+SMTLib"
     "(experimental) run Redux and dump the session to a file in SMTLib format."
     (

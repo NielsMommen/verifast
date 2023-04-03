@@ -1,6 +1,6 @@
 open Prover
 
-let register () =
+let () =
   Verifier.Verifast.register_prover "Redux"
     "the built-in Redux theorem prover. A partial re-implementation in OCaml by the VeriFast team of the Simplify theorem prover [Detlefs, Nelson, and Saxe]."
     (

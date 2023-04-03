@@ -5,6 +5,22 @@ set(LLVM_INSTALL_DIR "" CACHE PATH "LLVM installation directory")
 set(VFDEPS "" CACHE PATH "vfdeps package directory")
 set(LLVM_DIR "${LLVM_INSTALL_DIR}/lib/cmake/llvm")
 set(Clang_DIR "${LLVM_INSTALL_DIR}/lib/cmake/clang")
+set(CAPNP_INCLUDE_DIR "${VFDEPS}/include" CACHE PATH "include directory to pass to the capnp tool")
+
+if(WIN32)
+  execute_process(
+    COMMAND cygpath -w ${CAPNP_INCLUDE_DIR}
+    OUTPUT_VARIABLE CAPNP_INCLUDE_DIR
+  )
+endif()
+
+add_custom_command(
+  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../stubs
+  OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/../stubs/cxx_stubs_ast.capnp.c++ ${CMAKE_CURRENT_SOURCE_DIR}/../stubs/cxx_stubs_ast.capnp.h
+  COMMAND capnp compile -I ${CAPNP_INCLUDE_DIR} -oc++ cxx_stubs_ast.capnp
+  DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/../stubs/cxx_stubs_ast.capnp
+  VERBATIM
+)
 
 add_executable(vf-cxx-ast-exporter
   VerifastASTExporter.cpp
@@ -22,6 +38,7 @@ add_executable(vf-cxx-ast-exporter
   AnnotationStore.cpp
   Inclusion.cpp
   Error.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/../stubs/cxx_stubs_ast.capnp.c++
 )
 
 find_package(LLVM REQUIRED CONFIG)
@@ -61,7 +78,7 @@ set_property(TARGET vf-cxx-ast-exporter PROPERTY CXX_STANDARD 14)
 target_include_directories(vf-cxx-ast-exporter
   PRIVATE
   ${VFDEPS}/include
-  "../stubs"
+  ${CMAKE_CURRENT_SOURCE_DIR}/../stubs
 )
 
 target_link_libraries(vf-cxx-ast-exporter

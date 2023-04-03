@@ -1,6 +1,6 @@
 module Sp = Prover.Smtlibprover
 
-let register () =
+let () =
   Verifier.Verifast.register_prover "CVC4"
     "(experimental) the CVC4 theorem prover. (Does not ship with VeriFast; make sure the 'cvc4' command is in your PATH.)"
     (

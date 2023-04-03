@@ -2,7 +2,7 @@ open Prover
 
 module Sp = Smtlibprover
 
-let register () =
+let () =
   Verifier.Verifast.register_prover "ext_z3"
     "(experimental) runs Z3 as an external prover. This is to measure the impact of communicating with Z3 using a pipe instead of the API. This is also more portable."
     (

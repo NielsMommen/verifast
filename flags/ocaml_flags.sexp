@@ -1,0 +1,1 @@
+("-runtime-variant" "_pic" "-cclib" "-Wl,-headerpad_max_install_names" "-cclib" "-Wl,-rpath,@loader_path")

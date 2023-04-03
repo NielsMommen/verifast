@@ -7,7 +7,7 @@ module S = Smtlib
 module P = Proverapi
 module C = Combineprovers
 
-let register () =
+let () =
   Verifier.Verifast.register_prover "Z3v4.5+SMTLib"
     "(experimental) run Z3 version 4.5 and dump the session to a file in SMTLib format."
     (

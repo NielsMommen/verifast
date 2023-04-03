@@ -1,3 +1,5 @@
+(data_only_dirs ast_exporter)
+
 (library
  (name cxx_fe)
  (preprocess
