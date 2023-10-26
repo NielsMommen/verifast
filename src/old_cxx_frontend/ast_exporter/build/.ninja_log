@@ -1,0 +1,20 @@
+# ninja log v5
+81	17601	1697549701678174430	CMakeFiles/vf-cxx-ast-exporter.dir/DeclSerializer.cpp.o	b948d840b23bf322
+82	17075	1697549701150217013	CMakeFiles/vf-cxx-ast-exporter.dir/StmtSerializer.cpp.o	5913f859d4e01a62
+28	1926	1696938593487208439	CMakeFiles/vf-cxx-ast-exporter.dir/FixedWidthInt.cpp.o	61cc855376561504
+82	17196	1697549701272359132	CMakeFiles/vf-cxx-ast-exporter.dir/ExprSerializer.cpp.o	21d44979812cc7c4
+86	9344	1697549693445062445	CMakeFiles/vf-cxx-ast-exporter.dir/AnnotationStore.cpp.o	fded50d2a3785e7f
+83	17791	1697549701858658505	CMakeFiles/vf-cxx-ast-exporter.dir/AstSerializer.cpp.o	8d1b77eade154b5c
+84	6108	1697549690212605267	CMakeFiles/vf-cxx-ast-exporter.dir/LocUtil.cpp.o	338be528fb6c336a
+20079	21097	1697549705207472115	vf-cxx-ast-exporter	d8dfa07ba1d6dd99
+9345	15705	1697549699811133139	CMakeFiles/vf-cxx-ast-exporter.dir/Error.cpp.o	76a5b3f7f5c5a265
+84	9689	1697549693777493961	CMakeFiles/vf-cxx-ast-exporter.dir/ContextFreePPCallbacks.cpp.o	107a1cf942ae9248
+42	252	1696421359274162021	build.ninja	eaf92cd45afaf84c
+23	7160	1696938559914223445	CMakeFiles/vf-cxx-ast-exporter.dir/CommentProcessor.cpp.o	77c9d05185e094d4
+5	19	0	clean	ca91ab860e8b0f7a
+83	9472	1697549693570014392	CMakeFiles/vf-cxx-ast-exporter.dir/InclusionContext.cpp.o	bc223147eb454d41
+6109	20079	1697549704172954306	CMakeFiles/vf-cxx-ast-exporter.dir/Inclusion.cpp.o	1eae49f049eee38f
+22	4067	1696938556832523912	CMakeFiles/vf-cxx-ast-exporter.dir/Annotation.cpp.o	5f96e2454da78ea5
+82	16994	1697549701040528724	CMakeFiles/vf-cxx-ast-exporter.dir/TypeSerializer.cpp.o	4bc03ec636215c9f
+81	19616	1697549703688007425	CMakeFiles/vf-cxx-ast-exporter.dir/VerifastASTExporter.cpp.o	79e96778df881858
+30	44	0	clean	ca91ab860e8b0f7a

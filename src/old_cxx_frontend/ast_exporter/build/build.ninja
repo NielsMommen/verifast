@@ -1,0 +1,270 @@
+## This file contains all the build statements describing the
+# compilation DAG.
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# 
+# Which is the root file.
+# =============================================================================
+
+# =============================================================================
+# Project: VF_AST_Exporter
+# Configurations: Debug
+# =============================================================================
+
+#############################################
+# Minimal version of Ninja required by this file
+
+ninja_required_version = 1.5
+
+
+#############################################
+# Set configuration variable for custom commands.
+
+CONFIGURATION = Debug
+# =============================================================================
+# Include auxiliary files.
+
+
+#############################################
+# Include rules file.
+
+include CMakeFiles/rules.ninja
+
+# =============================================================================
+
+#############################################
+# Logical path to working directory; prefix for absolute paths.
+
+cmake_ninja_workdir = /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/build/
+# =============================================================================
+# Object build statements for EXECUTABLE target vf-cxx-ast-exporter
+
+
+#############################################
+# Order-only phony target for vf-cxx-ast-exporter
+
+build cmake_object_order_depends_target_vf-cxx-ast-exporter: phony || CMakeFiles/vf-cxx-ast-exporter.dir
+
+build CMakeFiles/vf-cxx-ast-exporter.dir/VerifastASTExporter.cpp.o: CXX_COMPILER__vf-cxx-ast-exporter_Debug /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/VerifastASTExporter.cpp || cmake_object_order_depends_target_vf-cxx-ast-exporter
+  DEP_FILE = CMakeFiles/vf-cxx-ast-exporter.dir/VerifastASTExporter.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -fno-rtti -fvisibility-inlines-hidden -std=gnu++17
+  INCLUDES = -I/usr/local/vf-llvm-clang-build-37740a3/include -I/usr/local/vfdeps-a4be456/include -I/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/../stubs
+  OBJECT_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+  OBJECT_FILE_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+
+build CMakeFiles/vf-cxx-ast-exporter.dir/DeclSerializer.cpp.o: CXX_COMPILER__vf-cxx-ast-exporter_Debug /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/DeclSerializer.cpp || cmake_object_order_depends_target_vf-cxx-ast-exporter
+  DEP_FILE = CMakeFiles/vf-cxx-ast-exporter.dir/DeclSerializer.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -fno-rtti -fvisibility-inlines-hidden -std=gnu++17
+  INCLUDES = -I/usr/local/vf-llvm-clang-build-37740a3/include -I/usr/local/vfdeps-a4be456/include -I/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/../stubs
+  OBJECT_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+  OBJECT_FILE_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+
+build CMakeFiles/vf-cxx-ast-exporter.dir/StmtSerializer.cpp.o: CXX_COMPILER__vf-cxx-ast-exporter_Debug /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/StmtSerializer.cpp || cmake_object_order_depends_target_vf-cxx-ast-exporter
+  DEP_FILE = CMakeFiles/vf-cxx-ast-exporter.dir/StmtSerializer.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -fno-rtti -fvisibility-inlines-hidden -std=gnu++17
+  INCLUDES = -I/usr/local/vf-llvm-clang-build-37740a3/include -I/usr/local/vfdeps-a4be456/include -I/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/../stubs
+  OBJECT_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+  OBJECT_FILE_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+
+build CMakeFiles/vf-cxx-ast-exporter.dir/ExprSerializer.cpp.o: CXX_COMPILER__vf-cxx-ast-exporter_Debug /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/ExprSerializer.cpp || cmake_object_order_depends_target_vf-cxx-ast-exporter
+  DEP_FILE = CMakeFiles/vf-cxx-ast-exporter.dir/ExprSerializer.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -fno-rtti -fvisibility-inlines-hidden -std=gnu++17
+  INCLUDES = -I/usr/local/vf-llvm-clang-build-37740a3/include -I/usr/local/vfdeps-a4be456/include -I/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/../stubs
+  OBJECT_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+  OBJECT_FILE_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+
+build CMakeFiles/vf-cxx-ast-exporter.dir/TypeSerializer.cpp.o: CXX_COMPILER__vf-cxx-ast-exporter_Debug /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/TypeSerializer.cpp || cmake_object_order_depends_target_vf-cxx-ast-exporter
+  DEP_FILE = CMakeFiles/vf-cxx-ast-exporter.dir/TypeSerializer.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -fno-rtti -fvisibility-inlines-hidden -std=gnu++17
+  INCLUDES = -I/usr/local/vf-llvm-clang-build-37740a3/include -I/usr/local/vfdeps-a4be456/include -I/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/../stubs
+  OBJECT_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+  OBJECT_FILE_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+
+build CMakeFiles/vf-cxx-ast-exporter.dir/AstSerializer.cpp.o: CXX_COMPILER__vf-cxx-ast-exporter_Debug /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/AstSerializer.cpp || cmake_object_order_depends_target_vf-cxx-ast-exporter
+  DEP_FILE = CMakeFiles/vf-cxx-ast-exporter.dir/AstSerializer.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -fno-rtti -fvisibility-inlines-hidden -std=gnu++17
+  INCLUDES = -I/usr/local/vf-llvm-clang-build-37740a3/include -I/usr/local/vfdeps-a4be456/include -I/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/../stubs
+  OBJECT_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+  OBJECT_FILE_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+
+build CMakeFiles/vf-cxx-ast-exporter.dir/InclusionContext.cpp.o: CXX_COMPILER__vf-cxx-ast-exporter_Debug /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/InclusionContext.cpp || cmake_object_order_depends_target_vf-cxx-ast-exporter
+  DEP_FILE = CMakeFiles/vf-cxx-ast-exporter.dir/InclusionContext.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -fno-rtti -fvisibility-inlines-hidden -std=gnu++17
+  INCLUDES = -I/usr/local/vf-llvm-clang-build-37740a3/include -I/usr/local/vfdeps-a4be456/include -I/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/../stubs
+  OBJECT_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+  OBJECT_FILE_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+
+build CMakeFiles/vf-cxx-ast-exporter.dir/Annotation.cpp.o: CXX_COMPILER__vf-cxx-ast-exporter_Debug /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/Annotation.cpp || cmake_object_order_depends_target_vf-cxx-ast-exporter
+  DEP_FILE = CMakeFiles/vf-cxx-ast-exporter.dir/Annotation.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -fno-rtti -fvisibility-inlines-hidden -std=gnu++17
+  INCLUDES = -I/usr/local/vf-llvm-clang-build-37740a3/include -I/usr/local/vfdeps-a4be456/include -I/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/../stubs
+  OBJECT_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+  OBJECT_FILE_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+
+build CMakeFiles/vf-cxx-ast-exporter.dir/CommentProcessor.cpp.o: CXX_COMPILER__vf-cxx-ast-exporter_Debug /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/CommentProcessor.cpp || cmake_object_order_depends_target_vf-cxx-ast-exporter
+  DEP_FILE = CMakeFiles/vf-cxx-ast-exporter.dir/CommentProcessor.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -fno-rtti -fvisibility-inlines-hidden -std=gnu++17
+  INCLUDES = -I/usr/local/vf-llvm-clang-build-37740a3/include -I/usr/local/vfdeps-a4be456/include -I/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/../stubs
+  OBJECT_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+  OBJECT_FILE_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+
+build CMakeFiles/vf-cxx-ast-exporter.dir/ContextFreePPCallbacks.cpp.o: CXX_COMPILER__vf-cxx-ast-exporter_Debug /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/ContextFreePPCallbacks.cpp || cmake_object_order_depends_target_vf-cxx-ast-exporter
+  DEP_FILE = CMakeFiles/vf-cxx-ast-exporter.dir/ContextFreePPCallbacks.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -fno-rtti -fvisibility-inlines-hidden -std=gnu++17
+  INCLUDES = -I/usr/local/vf-llvm-clang-build-37740a3/include -I/usr/local/vfdeps-a4be456/include -I/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/../stubs
+  OBJECT_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+  OBJECT_FILE_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+
+build CMakeFiles/vf-cxx-ast-exporter.dir/LocUtil.cpp.o: CXX_COMPILER__vf-cxx-ast-exporter_Debug /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/LocUtil.cpp || cmake_object_order_depends_target_vf-cxx-ast-exporter
+  DEP_FILE = CMakeFiles/vf-cxx-ast-exporter.dir/LocUtil.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -fno-rtti -fvisibility-inlines-hidden -std=gnu++17
+  INCLUDES = -I/usr/local/vf-llvm-clang-build-37740a3/include -I/usr/local/vfdeps-a4be456/include -I/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/../stubs
+  OBJECT_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+  OBJECT_FILE_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+
+build CMakeFiles/vf-cxx-ast-exporter.dir/FixedWidthInt.cpp.o: CXX_COMPILER__vf-cxx-ast-exporter_Debug /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/FixedWidthInt.cpp || cmake_object_order_depends_target_vf-cxx-ast-exporter
+  DEP_FILE = CMakeFiles/vf-cxx-ast-exporter.dir/FixedWidthInt.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -fno-rtti -fvisibility-inlines-hidden -std=gnu++17
+  INCLUDES = -I/usr/local/vf-llvm-clang-build-37740a3/include -I/usr/local/vfdeps-a4be456/include -I/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/../stubs
+  OBJECT_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+  OBJECT_FILE_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+
+build CMakeFiles/vf-cxx-ast-exporter.dir/AnnotationStore.cpp.o: CXX_COMPILER__vf-cxx-ast-exporter_Debug /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/AnnotationStore.cpp || cmake_object_order_depends_target_vf-cxx-ast-exporter
+  DEP_FILE = CMakeFiles/vf-cxx-ast-exporter.dir/AnnotationStore.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -fno-rtti -fvisibility-inlines-hidden -std=gnu++17
+  INCLUDES = -I/usr/local/vf-llvm-clang-build-37740a3/include -I/usr/local/vfdeps-a4be456/include -I/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/../stubs
+  OBJECT_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+  OBJECT_FILE_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+
+build CMakeFiles/vf-cxx-ast-exporter.dir/Inclusion.cpp.o: CXX_COMPILER__vf-cxx-ast-exporter_Debug /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/Inclusion.cpp || cmake_object_order_depends_target_vf-cxx-ast-exporter
+  DEP_FILE = CMakeFiles/vf-cxx-ast-exporter.dir/Inclusion.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -fno-rtti -fvisibility-inlines-hidden -std=gnu++17
+  INCLUDES = -I/usr/local/vf-llvm-clang-build-37740a3/include -I/usr/local/vfdeps-a4be456/include -I/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/../stubs
+  OBJECT_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+  OBJECT_FILE_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+
+build CMakeFiles/vf-cxx-ast-exporter.dir/Error.cpp.o: CXX_COMPILER__vf-cxx-ast-exporter_Debug /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/Error.cpp || cmake_object_order_depends_target_vf-cxx-ast-exporter
+  DEP_FILE = CMakeFiles/vf-cxx-ast-exporter.dir/Error.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -fno-rtti -fvisibility-inlines-hidden -std=gnu++17
+  INCLUDES = -I/usr/local/vf-llvm-clang-build-37740a3/include -I/usr/local/vfdeps-a4be456/include -I/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/../stubs
+  OBJECT_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+  OBJECT_FILE_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target vf-cxx-ast-exporter
+
+
+#############################################
+# Link the executable vf-cxx-ast-exporter
+
+build vf-cxx-ast-exporter: CXX_EXECUTABLE_LINKER__vf-cxx-ast-exporter_Debug CMakeFiles/vf-cxx-ast-exporter.dir/VerifastASTExporter.cpp.o CMakeFiles/vf-cxx-ast-exporter.dir/DeclSerializer.cpp.o CMakeFiles/vf-cxx-ast-exporter.dir/StmtSerializer.cpp.o CMakeFiles/vf-cxx-ast-exporter.dir/ExprSerializer.cpp.o CMakeFiles/vf-cxx-ast-exporter.dir/TypeSerializer.cpp.o CMakeFiles/vf-cxx-ast-exporter.dir/AstSerializer.cpp.o CMakeFiles/vf-cxx-ast-exporter.dir/InclusionContext.cpp.o CMakeFiles/vf-cxx-ast-exporter.dir/Annotation.cpp.o CMakeFiles/vf-cxx-ast-exporter.dir/CommentProcessor.cpp.o CMakeFiles/vf-cxx-ast-exporter.dir/ContextFreePPCallbacks.cpp.o CMakeFiles/vf-cxx-ast-exporter.dir/LocUtil.cpp.o CMakeFiles/vf-cxx-ast-exporter.dir/FixedWidthInt.cpp.o CMakeFiles/vf-cxx-ast-exporter.dir/AnnotationStore.cpp.o CMakeFiles/vf-cxx-ast-exporter.dir/Inclusion.cpp.o CMakeFiles/vf-cxx-ast-exporter.dir/Error.cpp.o | /usr/local/vfdeps-a4be456/lib/libcapnp.a /usr/local/vfdeps-a4be456/lib/libkj.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMSupport.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangAST.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangBasic.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangFrontend.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangTooling.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangFrontend.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangParse.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangDriver.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMWindowsDriver.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangSerialization.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangSema.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangEdit.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangAnalysis.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangSupport.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMFrontendHLSL.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMOption.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangASTMatchers.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangAST.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMFrontendOpenMP.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMScalarOpts.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMAggressiveInstCombine.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMInstCombine.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMTransformUtils.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMAnalysis.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMProfileData.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMSymbolize.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMDebugInfoPDB.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMDebugInfoMSF.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMDebugInfoDWARF.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMObject.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMMCParser.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMMC.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMDebugInfoCodeView.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMIRReader.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMBitReader.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMAsmParser.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMCore.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMRemarks.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMBitstreamReader.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMTextAPI.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMBinaryFormat.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangFormat.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangToolingInclusions.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangToolingCore.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangRewrite.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangLex.a /usr/local/vf-llvm-clang-build-37740a3/lib/libclangBasic.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMTargetParser.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMSupport.a /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMDemangle.a
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
+  LINK_LIBRARIES = /usr/local/vfdeps-a4be456/lib/libcapnp.a  /usr/local/vfdeps-a4be456/lib/libkj.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMSupport.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangAST.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangBasic.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangFrontend.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangTooling.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangFrontend.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangParse.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangDriver.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMWindowsDriver.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangSerialization.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangSema.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangEdit.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangAnalysis.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangSupport.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMFrontendHLSL.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMOption.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangASTMatchers.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangAST.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMFrontendOpenMP.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMScalarOpts.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMAggressiveInstCombine.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMInstCombine.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMTransformUtils.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMAnalysis.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMProfileData.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMSymbolize.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMDebugInfoPDB.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMDebugInfoMSF.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMDebugInfoDWARF.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMObject.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMMCParser.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMMC.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMDebugInfoCodeView.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMIRReader.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMBitReader.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMAsmParser.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMCore.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMRemarks.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMBitstreamReader.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMTextAPI.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMBinaryFormat.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangFormat.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangToolingInclusions.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangToolingCore.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangRewrite.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangLex.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libclangBasic.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMTargetParser.a  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMSupport.a  -lm  /usr/local/vf-llvm-clang-build-37740a3/lib/libLLVMDemangle.a
+  OBJECT_DIR = CMakeFiles/vf-cxx-ast-exporter.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = vf-cxx-ast-exporter
+  TARGET_PDB = vf-cxx-ast-exporter.dbg
+
+
+#############################################
+# Utility command for intrinsics_gen
+
+build intrinsics_gen: phony
+
+
+#############################################
+# Utility command for omp_gen
+
+build omp_gen: phony
+
+
+#############################################
+# Utility command for acc_gen
+
+build acc_gen: phony
+
+
+#############################################
+# Utility command for RISCVTargetParserTableGen
+
+build RISCVTargetParserTableGen: phony
+
+
+#############################################
+# Utility command for clang-tablegen-targets
+
+build clang-tablegen-targets: phony
+
+
+#############################################
+# Utility command for edit_cache
+
+build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/build && /Applications/CMake.app/Contents/bin/ccmake -S/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter -B/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build edit_cache: phony CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/build && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter -B/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Target aliases.
+
+# =============================================================================
+# Folder targets.
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/build
+
+build all: phony vf-cxx-ast-exporter
+
+# =============================================================================
+# Built-in targets
+
+
+#############################################
+# Re-run CMake if any of its inputs changed.
+
+build build.ninja: RERUN_CMAKE | /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeCInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CheckCXXCompilerFlag.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CheckCXXSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/GNU.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Internal/CheckCompilerFlag.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Internal/CheckFlagCommonConfig.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Internal/CheckSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-Clang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Darwin-Initialize.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Darwin.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/CMakeLists.txt /usr/local/vf-llvm-clang-build-37740a3/lib/cmake/clang/ClangConfig.cmake /usr/local/vf-llvm-clang-build-37740a3/lib/cmake/clang/ClangConfigVersion.cmake /usr/local/vf-llvm-clang-build-37740a3/lib/cmake/clang/ClangTargets-release.cmake /usr/local/vf-llvm-clang-build-37740a3/lib/cmake/clang/ClangTargets.cmake /usr/local/vf-llvm-clang-build-37740a3/lib/cmake/llvm/LLVM-Config.cmake /usr/local/vf-llvm-clang-build-37740a3/lib/cmake/llvm/LLVMConfig.cmake /usr/local/vf-llvm-clang-build-37740a3/lib/cmake/llvm/LLVMConfigVersion.cmake /usr/local/vf-llvm-clang-build-37740a3/lib/cmake/llvm/LLVMExports-release.cmake /usr/local/vf-llvm-clang-build-37740a3/lib/cmake/llvm/LLVMExports.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake
+  pool = console
+
+
+#############################################
+# A missing CMake input file is not an error.
+
+build /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeCInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CheckCXXCompilerFlag.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CheckCXXSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/GNU.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Internal/CheckCompilerFlag.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Internal/CheckFlagCommonConfig.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Internal/CheckSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-Clang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Darwin-Initialize.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Darwin.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/CMakeLists.txt /usr/local/vf-llvm-clang-build-37740a3/lib/cmake/clang/ClangConfig.cmake /usr/local/vf-llvm-clang-build-37740a3/lib/cmake/clang/ClangConfigVersion.cmake /usr/local/vf-llvm-clang-build-37740a3/lib/cmake/clang/ClangTargets-release.cmake /usr/local/vf-llvm-clang-build-37740a3/lib/cmake/clang/ClangTargets.cmake /usr/local/vf-llvm-clang-build-37740a3/lib/cmake/llvm/LLVM-Config.cmake /usr/local/vf-llvm-clang-build-37740a3/lib/cmake/llvm/LLVMConfig.cmake /usr/local/vf-llvm-clang-build-37740a3/lib/cmake/llvm/LLVMConfigVersion.cmake /usr/local/vf-llvm-clang-build-37740a3/lib/cmake/llvm/LLVMExports-release.cmake /usr/local/vf-llvm-clang-build-37740a3/lib/cmake/llvm/LLVMExports.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake: phony
+
+
+#############################################
+# Clean all the built files.
+
+build clean: CLEAN
+
+
+#############################################
+# Print all primary targets available.
+
+build help: HELP
+
+
+#############################################
+# Make the all target the default.
+
+default all

@@ -1,0 +1,20 @@
+(executable
+ (public_name vfide)
+ (optional)
+ (flags
+  (:standard -linkall))
+ (libraries
+  num
+  str
+  util
+  ast
+  lexer
+  parser
+  verifier
+  lablgtk2
+  shape_analysis
+  vfconfig
+  branch_png
+  plugin
+  (select linemarks.ml from (-> linemarks.fallback.ml))
+  ))

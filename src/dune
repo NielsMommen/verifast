@@ -1,0 +1,12 @@
+(env
+ (_
+  (flags
+   (:standard
+    ; path to lib directory where e.g. libz3.{dylib,dll,so} is located
+    -cclib
+    "-L %{ocaml-config:standard_library}/.."
+    ; include debug info
+    -g
+    ; Disable warning 8 [partial-match]: this pattern-matching is not exhaustive
+    -w
+    -8))))

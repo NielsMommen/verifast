@@ -1,0 +1,54 @@
+;; -linkall is used to link libraries that are used for their side-effect.
+;; This is required in order to register plugins in verifast
+
+(executable
+ (flags
+  (:standard -linkall))
+ (name vfconsole)
+ (public_name verifast)
+ (modules vfconsole)
+ (libraries
+  str
+  num
+  util
+  ast
+  lexer
+  parser
+  verifier
+  json
+  java_frontend
+  sexpr
+  ocaml_expr
+  plugin))
+
+(executable
+ (public_name main_class)
+ (modules main_class)
+ (libraries))
+
+(executable
+ (public_name java_card_applet)
+ (modules java_card_applet)
+ (libraries))
+
+(executable
+ (public_name dlsymtool)
+ (modules dlsymtool)
+ (libraries))
+
+(executable
+ (public_name vfstrip)
+ (modules vfstrip)
+ (libraries))
+
+(executable
+ (public_name explorer)
+ (modules explorer)
+ (preprocess
+  (pps ppx_parser))
+ (libraries num ast lexer parser))
+
+(executable
+ (public_name mysh)
+ (modules mysh)
+ (libraries threads vfconfig))

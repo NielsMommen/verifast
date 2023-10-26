@@ -1,0 +1,15 @@
+(library
+ (name vfconfig)
+ (modules vfconfig))
+
+(executable
+ (name gen_vfconfig)
+ (modules gen_vfconfig)
+ (libraries dune-configurator))
+
+(rule
+ (deps
+  (:gen gen_vfconfig.exe))
+ (target vfconfig.ml)
+ (action
+  (run ./%{gen})))

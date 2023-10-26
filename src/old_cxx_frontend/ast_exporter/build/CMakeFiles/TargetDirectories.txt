@@ -1,0 +1,8 @@
+/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/build/CMakeFiles/vf-cxx-ast-exporter.dir
+/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/build/CMakeFiles/intrinsics_gen.dir
+/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/build/CMakeFiles/omp_gen.dir
+/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/build/CMakeFiles/acc_gen.dir
+/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/build/CMakeFiles/RISCVTargetParserTableGen.dir
+/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/build/CMakeFiles/clang-tablegen-targets.dir
+/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/build/CMakeFiles/edit_cache.dir
+/Users/nielsmommen/Documents/verifast-fork/src/cxx_frontend/ast_exporter/build/CMakeFiles/rebuild_cache.dir

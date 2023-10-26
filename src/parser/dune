@@ -1,0 +1,4 @@
+(library
+ (name parser)
+ (preprocess (pps ppx_parser))
+ (libraries util stats lexer))

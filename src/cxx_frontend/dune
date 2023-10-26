@@ -1,0 +1,20 @@
+(data_only_dirs ast_exporter)
+
+(library
+ (name cxx_frontend)
+ (preprocess
+  (per_module
+   ((pps ppx_parser)
+    annotation_parser)))
+ (flags
+  ; disable warning 55 [inlining-impossible]: Cannot inline: Function information unavailable
+  (:standard -w -55))
+ (libraries lexer parser capnp capnp.unix))
+
+(rule
+ (alias gen_cxx_ml_stubs)
+ (deps
+  (:schema ast_exporter/stubs/stubs_ast.capnp))
+ (targets stubs_ast.ml stubs_ast.mli)
+ (action
+  (run capnp compile -o ocaml %{schema})))
