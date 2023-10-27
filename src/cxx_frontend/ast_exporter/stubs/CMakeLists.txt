@@ -1,7 +1,16 @@
+set(CAPNP_PREFIX ${CMAKE_CURRENT_SOURCE_DIR})
+set(CAPNP_VFDEPS ${VFDEPS}/include)
+
+if(${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
+  find_program(CYGPATH cygpath REQUIRED)
+  execute_process(COMMAND ${CYGPATH} -w ${CAPNP_PREFIX} OUTPUT_VARIABLE CAPNP_PREFIX OUTPUT_STRIP_TRAILING_WHITESPACE)
+  execute_process(COMMAND ${CYGPATH} -w ${CAPNP_VFDEPS} OUTPUT_VARIABLE CAPNP_VFDEPS OUTPUT_STRIP_TRAILING_WHITESPACE)
+endif()
+
 # generated cource and header file for 'stubs_ast' in build directory
 add_custom_command(
   OUTPUT stubs_ast.capnp.c++ stubs_ast.capnp.h
-  COMMAND capnp compile -o c++ ${CMAKE_CURRENT_SOURCE_DIR}/stubs_ast.capnp --src-prefix=${CMAKE_CURRENT_SOURCE_DIR}
+  COMMAND capnp compile -I ${CAPNP_VFDEPS} -o c++ ${CAPNP_PREFIX}/stubs_ast.capnp --src-prefix=${CAPNP_PREFIX}
   DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/stubs_ast.capnp
   VERBATIM
 )
