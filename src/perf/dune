@@ -6,7 +6,3 @@
    from
    (perf_unix -> perf.unix.ml)
    (perf_win -> perf.win.ml))))
-
-(copy_files unix/*.ml)
-
-(copy_files win/*.ml)

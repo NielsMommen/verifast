@@ -1,3 +1,3 @@
 (library
  (name verifier)
- (libraries camlp-streams util ast prover stats lexer parser java_frontend cxx_frontend))
+ (libraries camlp-streams prover frontend java_frontend cxx_frontend))

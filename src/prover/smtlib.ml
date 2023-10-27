@@ -230,8 +230,8 @@ module Symbol (S : SORT) : SYMBOL with type sort = S.t = struct
   let print o f = print_string o (to_string f)
 
   let features (_, domain, range) =
-    Util.list_remove_dups
-      (Util.flatmap S.features (range :: domain))
+    Frontend.Util.list_remove_dups
+      (Frontend.Util.flatmap S.features (range :: domain))
 end
 
 module Sym : SYMBOL with type sort = Sort.t = Symbol(Sort)
@@ -390,11 +390,11 @@ module Term (S : SORT)
     | Real _ -> ["LRA"]
     | Var _ -> []
     | App (f, l) ->
-       Util.list_remove_dups (Sy.features f @ Util.flatmap features l)
+       Frontend.Util.list_remove_dups (Sy.features f @ Frontend.Util.flatmap features l)
     | Forall (vars, _, t) ->
        (* variables cannot have feature "Q" *)
        let l = features t in
-       let l' = Util.list_remove_dups (l @ Util.flatmap V.features vars) in
+       let l' = Frontend.Util.list_remove_dups (l @ Frontend.Util.flatmap V.features vars) in
        if List.mem "Q" l then l' else "Q" :: l'
 
 end

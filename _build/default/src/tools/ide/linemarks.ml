@@ -1,2 +1,10 @@
-# 1 "src/tools/ide/linemarks.fallback.ml"
-module LF = Linemarks_fallback
+# 1 "src/tools/ide/linemarks.sourceview.ml"
+module SourceView = GSourceView2
+
+class table = Linemarks_sourceview.GLineMarks.table
+
+let table = Linemarks_sourceview.GLineMarks.table
+
+class source_gutter_text_column = Linemarks_sourceview.GLineMarks.source_gutter_text_column
+
+let source_gutter_text_column = Linemarks_sourceview.GLineMarks.source_gutter_text_column

@@ -6,15 +6,14 @@
  (libraries
   num
   str
-  util
-  ast
-  lexer
-  parser
+  frontend
   verifier
-  lablgtk2
   shape_analysis
   vfconfig
   branch_png
-  plugin
-  (select linemarks.ml from (-> linemarks.fallback.ml))
-  ))
+  (select
+   linemarks.ml
+   from
+   (linemarks_sourceview -> linemarks.sourceview.ml)
+   (linemarks_fallback -> linemarks.fallback.ml))
+  plugin))

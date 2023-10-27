@@ -1,3 +1,4 @@
+open Frontend
 open Ast
 open Lexer
 
@@ -19,12 +20,12 @@ let load _ =
         Printf.printf "%s" error_message;
         failwith error_message
     in
-    Frontend.attach(launch)
+    Java_fe.attach(launch)
   with
-    Frontend.JavaFrontendException(_, msg) -> raise (Parser.CompilationError msg)
+    Java_fe.JavaFrontendException(_, msg) -> raise (Parser.CompilationError msg)
 
 let unload _ =
-  Frontend.detach()
+  Java_fe.detach()
 
 let found_java_spec_files = ref []
 
@@ -56,26 +57,26 @@ let rec parse_java_files_with_frontend (paths: string list) (jars: string list) 
   let context_for_paths = List.filter (fun x -> not (List.mem ((Filename.chop_extension x) ^ ".java") paths)) context_for_paths in
   let parse paths =
     try
-      if not (Frontend.is_attached ()) then load();
+      if not (Java_fe.is_attached ()) then load();
       let ann_checker = new Annotation_type_checker.dummy_ann_type_checker () in
       let fe_options =
-        [Frontend.desugar; 
-        Frontend.keep_assertions;
-        Frontend.keep_super_call_first;
-        Frontend.bodyless_methods_own_trailing_annotations;
-        Frontend.accept_spec_files]
+        [Java_fe.desugar; 
+        Java_fe.keep_assertions;
+        Java_fe.keep_super_call_first;
+        Java_fe.bodyless_methods_own_trailing_annotations;
+        Java_fe.accept_spec_files]
       in
       let reportShouldFail' directive l =
         let Lexed l = Ast_translator.translate_location l in
         reportShouldFail directive l
       in
       let packages = 
-        Frontend.asts_from_java_files paths ~context:context_for_paths fe_options reportShouldFail' "verifast_annotation_char" ann_checker
+        Java_fe.asts_from_java_files paths ~context:context_for_paths fe_options reportShouldFail' "verifast_annotation_char" ann_checker
       in
       let annotations = ann_checker#retrieve_annotations () in
       Ast_translator.translate_asts packages annotations reportRange reportShouldFail enforceAnnotations
     with
-      Frontend.JavaFrontendException(l, m) -> 
+    Java_fe.JavaFrontendException(l, m) -> 
         let message = 
           String.concat " |" (Misc.split_string '\n' m)
         in

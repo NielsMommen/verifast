@@ -159,3 +159,5 @@ _opam
 .merlin
 
 .DS_Store
+
+_build

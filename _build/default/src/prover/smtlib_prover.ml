@@ -56,7 +56,7 @@ class smtlib_context input_fun output (features : string list) =
     f
   in
   let tag_func k = declare_fun ("ctortag" ^ string_of_int k) [ inductive_type ] int_type in
-  let tag_func = Util.memoize tag_func in
+  let tag_func = Frontend.Util.memoize tag_func in
   let tag_func subtype = tag_func (InductiveSubtype.to_int subtype) in
   let ctor_counter = ref Big_int.zero_big_int in
   let get_ctor_tag () =
@@ -174,10 +174,10 @@ class smtlib_context input_fun output (features : string list) =
            let ctps = Smtlib.get_domain csym in
            let m = List.length ctps in
            let l = m + n - 1 in
-           let small_dom = Util.take k ftps in
+           let small_dom = Frontend.Util.take k ftps in
            let small_xs = List.mapi Smtlib.mk_var small_dom in
            let ys = List.mapi (fun i -> Smtlib.mk_var (i+k)) ctps in
-           let big_dom = Util.drop (k+1) ftps in
+           let big_dom = Frontend.Util.drop (k+1) ftps in
            let big_xs = List.mapi (fun i -> Smtlib.mk_var (i+m+k)) big_dom in
            let cargs = List.map Smtlib.var ys in
            let capp = Smtlib.app csym cargs in

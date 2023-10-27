@@ -1,0 +1,33 @@
+(rule
+ (alias gen_c_linemarks)
+ (enabled_if %{lib-available:lablgtk2.sourceview2})
+ (deps linemarks.vala mystuff.vapi)
+ (targets linemarks.c linemarks.h)
+ (action
+  (run
+   valac
+   --enable-deprecated
+   --vapidir
+   .
+   -C
+   -H
+   linemarks.h
+   --pkg
+   gtksourceview-2.0
+   %{deps})))
+
+(library
+ (optional)
+ (name linemarks_sourceview)
+ (libraries lablgtk2 lablgtk2.sourceview2)
+ ; Pass flags to c compiler when constructing the library
+ ; archive file for the C stubs. E.g. to pass -lbar to the linker.
+ (c_library_flags
+  (:standard
+   (:include flags/linemarks_lflags.sexp)))
+ (foreign_stubs
+  (language c)
+  (flags
+   (:standard -w)
+   (:include flags/linemarks_cflags.sexp))
+  (names linemarks ml_GtkLineMarks)))

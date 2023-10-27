@@ -10,10 +10,7 @@
  (libraries
   str
   num
-  util
-  ast
-  lexer
-  parser
+  frontend
   verifier
   json
   java_frontend
@@ -46,7 +43,7 @@
  (modules explorer)
  (preprocess
   (pps ppx_parser))
- (libraries num ast lexer parser))
+ (libraries num frontend))
 
 (executable
  (public_name mysh)

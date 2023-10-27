@@ -18,11 +18,11 @@ module Bridge = Java_frontend__Bridge
 (** @canonical Java_frontend.Communication *)
 module Communication = Java_frontend__Communication
 
-(** @canonical Java_frontend.Frontend *)
-module Frontend = Java_frontend__Frontend
-
 (** @canonical Java_frontend.General_ast *)
 module General_ast = Java_frontend__General_ast
+
+(** @canonical Java_frontend.Java_fe *)
+module Java_fe = Java_frontend__Java_fe
 
 (** @canonical Java_frontend.Misc *)
 module Misc = Java_frontend__Misc

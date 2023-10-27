@@ -1,7 +1,7 @@
 module Stubs = Stubs_ast.Make(Capnp.BytesMessage)
 module R = Stubs.Reader
-module VF = Ast
-open Util
+module VF = Frontend.Ast
+open Frontend.Util
 open Big_int
 
 type 'a capnp_arr = (Stubs_ast.ro, 'a, R.array_t) Capnp.Array.t
@@ -43,7 +43,7 @@ module Make (Args: Fe_sig.CXX_TRANSLATOR_ARGS) : Fe_sig.Cxx_Ast_Translator = str
   *)
   module AP = Annotation_parser.Make(Args)
 
-  let int_rank, long_rank, ptr_rank = Parser.decompose_data_model Args.data_model_opt
+  let int_rank, long_rank, ptr_rank = Frontend.Parser.decompose_data_model Args.data_model_opt
 
   let make_int_lit (loc: VF.loc) (n: int) =
     VF.IntLit (loc, big_int_of_int n, true, false, VF.NoLSuffix)
@@ -586,8 +586,8 @@ module Make (Args: Fe_sig.CXX_TRANSLATOR_ARGS) : Fe_sig.Cxx_Ast_Translator = str
     let dec, value = 
       match base_get int_lit with
       | R.NbBase.Decimal -> true, big_int_of_string str_value
-      | R.NbBase.Octal -> false, Lexer.big_int_of_octal_string str_value
-      | R.NbBase.Hex -> false, Lexer.big_int_of_hex_string str_value 
+      | R.NbBase.Octal -> false, Frontend.Lexer.big_int_of_octal_string str_value
+      | R.NbBase.Hex -> false, Frontend.Lexer.big_int_of_hex_string str_value 
     in
     let u_suf = u_suffix_get int_lit in
     VF.IntLit (loc, value, dec, u_suf, l_suf)
@@ -872,7 +872,7 @@ module Make (Args: Fe_sig.CXX_TRANSLATOR_ARGS) : Fe_sig.Cxx_Ast_Translator = str
   let transl_includes (decls_map: (int * R.Node.t capnp_arr) list) (includes: R.Include.t list): Fe_sig.header_type list =
     let active_headers = ref [] in
     let test_include_cycle l path =
-      if List.mem path !active_headers then raise (Lexer.ParseException (l, "Include cycles (even with header guards) are not supported"));
+      if List.mem path !active_headers then raise (Frontend.Lexer.ParseException (l, "Include cycles (even with header guards) are not supported"));
     in
     let add_active_header path =
       active_headers := path :: !active_headers
@@ -907,7 +907,7 @@ module Make (Args: Fe_sig.CXX_TRANSLATOR_ARGS) : Fe_sig.Cxx_Ast_Translator = str
         let () = test_include_cycle loc path in
         [], path
       else
-        let incl_kind = if is_angled_get incl then Lexer.AngleBracketInclude else Lexer.DoubleQuoteInclude in
+        let incl_kind = if is_angled_get incl then Frontend.Lexer.AngleBracketInclude else Frontend.Lexer.DoubleQuoteInclude in
         let includes = includes_get_list incl in
         let () = add_active_header path in
         let headers, header_names = transl_includes_rec path includes [] (path :: all_includes_done_paths) in

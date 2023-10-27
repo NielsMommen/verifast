@@ -1,4 +1,8 @@
 (library
  (name java_frontend)
- (preprocess (per_module ((pps ppx_parser) ast_reader ast_translator)))
- (libraries camlp-streams threads ast lexer parser))
+ (preprocess
+  (per_module
+   ((pps ppx_parser)
+    ast_reader
+    ast_translator)))
+ (libraries camlp-streams threads frontend))

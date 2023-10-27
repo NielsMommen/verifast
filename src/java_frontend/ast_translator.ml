@@ -27,6 +27,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 *)
 
+open Frontend
+
 module VF = Ast
 module GEN = General_ast
 

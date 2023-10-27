@@ -1,5 +1,3 @@
 (library
- (optional)
  (name linemarks_fallback)
- (public_name verifast.linemarks_fallback)
  (libraries lablgtk2))

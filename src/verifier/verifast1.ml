@@ -2,6 +2,7 @@ open Prover.Prover_api
 open Big_int
 open Printf
 open Num (* rational numbers *)
+open Frontend
 open Util
 open Stats
 open Lexer

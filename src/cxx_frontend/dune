@@ -9,7 +9,7 @@
  (flags
   ; disable warning 55 [inlining-impossible]: Cannot inline: Function information unavailable
   (:standard -w -55))
- (libraries lexer parser capnp capnp.unix))
+ (libraries frontend capnp capnp.unix))
 
 (rule
  (alias gen_cxx_ml_stubs)

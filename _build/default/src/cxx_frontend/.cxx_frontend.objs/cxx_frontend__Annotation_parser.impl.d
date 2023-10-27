@@ -1,1 +1,1 @@
-src/cxx_frontend/annotation_parser.pp.ml: Ast Fe_sig Hashtbl Lexer List Parser Stream
+src/cxx_frontend/annotation_parser.pp.ml: Fe_sig Frontend Hashtbl List Stream

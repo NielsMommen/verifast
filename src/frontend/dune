@@ -1,0 +1,8 @@
+(library
+ (name frontend)
+ (preprocess
+  (per_module
+   ((pps ppx_parser)
+    lexer
+    parser)))
+ (libraries stopwatch perf))

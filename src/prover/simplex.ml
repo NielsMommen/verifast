@@ -2,7 +2,7 @@
 
 open Big_int
 open Num
-open Util
+open Frontend.Util
 
 let stopwatch = Stopwatch.create ()
 

@@ -1,4 +1,5 @@
 open Unix
+open Frontend
 open Util
 open Ast
 open Lexer
@@ -6,7 +7,7 @@ open Parser
 open Verifier.Verifast0
 open Verifier.Verifast
 open GMain
-open Shape_analysis.Frontend
+open Shape_analysis.Sa_frontend
 open Vfconfig
 
 type layout = FourThree | Widescreen
@@ -624,7 +625,7 @@ let show_ide initialPath prover codeFont traceFont vfbindings layout javaFronten
     let textScroll =
       GBin.scrolled_window ~hpolicy:`AUTOMATIC ~vpolicy:`AUTOMATIC ~shadow_type:`IN
         ~packing:textVbox#add () in
-    let srcText = (*GText.view*) GSourceView2.source_view ~source_buffer:buffer ~packing:textScroll#add () in
+    let srcText = (*GText.view*) Linemarks.SourceView.source_view ~source_buffer:buffer ~packing:textScroll#add () in
     lineMarksTable#show_in_source_view srcText;
     stmtExecCountsColumn#show_in_source_view srcText;
     srcText#misc#modify_font_by_name !scaledCodeFont;
@@ -669,9 +670,9 @@ let show_ide initialPath prover codeFont traceFont vfbindings layout javaFronten
   in
   let add_buffer() =
     let path = ref None in
-    let buffer = GSourceView2.source_buffer () in
-    let lineMarksTable = Linemarks.GLineMarks.table () in
-    let stmtExecCountsColumn = Linemarks.GLineMarks.source_gutter_text_column "99x" 1.0 in
+    let buffer = Linemarks.SourceView.source_buffer () in
+    let lineMarksTable = Linemarks.table () in
+    let stmtExecCountsColumn = Linemarks.source_gutter_text_column "99x" 1.0 in
     buffer#begin_not_undoable_action (); (* Disable the source view's undo manager since we handle undos ourselves. *)
     let apply_tag_enabled = ref false in (* To prevent tag copying when pasting from clipboard *)
     ignore $. buffer#connect#apply_tag ~callback:(fun tag ~start ~stop -> if not !apply_tag_enabled then GtkSignal.emit_stop_by_name buffer#as_buffer ~name:"apply-tag");
@@ -810,7 +811,7 @@ let show_ide initialPath prover codeFont traceFont vfbindings layout javaFronten
       buffer#delete ~start:buffer#start_iter ~stop:buffer#end_iter;
       let gIter = buffer#start_iter in
       tab#eol := eol;
-      (buffer: GSourceView2.source_buffer)#insert ~iter:gIter text;
+      (buffer: Linemarks.SourceView.source_buffer)#insert ~iter:gIter text;
       let {tab_size=tabSize} = try get_file_options text with FileOptionsError _ -> default_file_options in
       tab#mainView#view#set_tab_width tabSize;
       tab#subView#view#set_tab_width tabSize;
@@ -841,7 +842,7 @@ let show_ide initialPath prover codeFont traceFont vfbindings layout javaFronten
   end;
   let store tab thePath =
     let chan = open_out_bin thePath in
-    let text = (tab#buffer: GSourceView2.source_buffer)#get_text () in
+    let text = (tab#buffer: Linemarks.SourceView.source_buffer)#get_text () in
     output_string chan (utf8_to_file (convert_eol !(tab#eol) text));
     flush chan;
     (* let mtime = out_channel_last_modification_time chan in *)

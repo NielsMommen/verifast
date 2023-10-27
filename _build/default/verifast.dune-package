@@ -1,0 +1,15 @@
+(lang dune 3.7)
+(name verifast)
+(sections (lib .) (bin ../../bin) (doc ../../doc/verifast))
+(files
+ (lib (META dune-package opam))
+ (bin
+  (dlsymtool explorer java_card_applet main_class mysh verifast vfide vfstrip))
+ (doc
+  (LICENSE.md
+   README.Linux.md
+   README.MacOS.md
+   README.Windows.md
+   README.Z3v4.5.md
+   README.md
+   README.txt)))

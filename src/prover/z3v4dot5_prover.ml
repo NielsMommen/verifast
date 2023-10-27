@@ -101,7 +101,7 @@ class z3_context () =
   (* HACK: for now, all inductive values have the same Z3 type. *)
   let inductive_type = Z3native.mk_uninterpreted_sort ctxt (Z3native.mk_string_symbol ctxt "inductive") in
   let tag_func k = Z3.mk_func_decl ctxt (Z3native.mk_string_symbol ctxt ("ctortag" ^ string_of_int k)) [| inductive_type |] int_type in
-  let tag_func = Util.memoize tag_func in
+  let tag_func = Frontend.Util.memoize tag_func in
   let tag_func subtype = tag_func (InductiveSubtype.to_int subtype) in
   let ctor_counter = ref 0 in
   let get_ctor_tag () = let k = !ctor_counter in ctor_counter := k + 1; k in

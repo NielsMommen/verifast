@@ -1,5 +1,5 @@
-module VF = Ast
-open Lexer
+module VF = Frontend.Ast
+open Frontend.Lexer
 
 exception CxxAnnParseException of VF.loc * string
 
@@ -10,7 +10,7 @@ type raw_annotation = VF.loc0 * string
 
 module Make (Args: Fe_sig.CXX_TRANSLATOR_ARGS) = struct
 
-  module AnnParser = Parser.Parser (
+  module AnnParser = Frontend.Parser.Parser (
     struct
       let language = VF.CLang
       let enforce_annotations = Args.enforce_annotations
@@ -25,9 +25,9 @@ module Make (Args: Fe_sig.CXX_TRANSLATOR_ARGS) = struct
   let ghost_macros = Hashtbl.create 10
 
   let make_lexer_token_stream_core (((start_loc, _), text): raw_annotation) =
-    let loc, ignore_eol, token_stream, _, _ = Lexer.make_lexer_core
-      (Parser.common_keywords @ Parser.c_keywords) Parser.ghost_keywords start_loc (text ^ "\n") (* append a newline to be able to parse //@ annotations *)
-      Args.report_range false false true Args.report_should_fail Lexer.default_file_options.annot_char 
+    let loc, ignore_eol, token_stream, _, _ = Frontend.Lexer.make_lexer_core
+      (Frontend.Parser.common_keywords @ Frontend.Parser.c_keywords) Frontend.Parser.ghost_keywords start_loc (text ^ "\n") (* append a newline to be able to parse //@ annotations *)
+      Args.report_range false false true Args.report_should_fail Frontend.Lexer.default_file_options.annot_char 
     in
     loc, ignore_eol, token_stream
 
@@ -37,7 +37,7 @@ module Make (Args: Fe_sig.CXX_TRANSLATOR_ARGS) = struct
 
   let try_parse_no_pp ann_parser (current_loc, token_stream) =
     try
-      ann_parser @@ Parser.noop_preprocessor token_stream
+      ann_parser @@ Frontend.Parser.noop_preprocessor token_stream
     with
       Stream.Error msg -> error (VF.Lexed (current_loc ())) ("Stream error during parsing: " ^ msg)
     | Stream.Failure -> error (VF.Lexed (current_loc ())) "Parse error in ghost code."
@@ -52,21 +52,21 @@ module Make (Args: Fe_sig.CXX_TRANSLATOR_ARGS) = struct
     in
     let rec next_token () =
       let (_, stream) :: rest = !lexers in
-      match Lexer.Stream.peek stream with
-        Some (_, Lexer.Eof) | None ->
+      match Frontend.Lexer.Stream.peek stream with
+        Some (_, Frontend.Lexer.Eof) | None ->
           if rest = [] then None
           else begin
             lexers := rest; 
             next_token ()
           end
-      | Some _ as tk -> Lexer.Stream.junk stream; tk 
+      | Some _ as tk -> Frontend.Lexer.Stream.junk stream; tk 
     in
     let token_stream = Stream.from (fun _ -> next_token ()) in
     try_parse_no_pp ann_parser (current_loc (), token_stream)
 
   let parse_end = function%parser
-    | [ [%l () = Lexer.Stream.empty] ] -> ()
-    | [ (_, Lexer.Eof) ] -> ()
+    | [ [%l () = Frontend.Lexer.Stream.empty] ] -> ()
+    | [ (_, Frontend.Lexer.Eof) ] -> ()
 
   let parse_spec_clauses_opt (anns: raw_annotation list): (bool * (string * VF.type_expr list * (VF.loc * string) list) option * (VF.asn * VF.asn) option * bool) option =
     match anns with
@@ -116,8 +116,8 @@ module Make (Args: Fe_sig.CXX_TRANSLATOR_ARGS) = struct
     let ann_parser = function%parser
     | [ 
         (_, Kwd "/*@");
-        [%l functiontype_type_params = Parser.opt AnnParser.parse_type_params_free];
-        [%l functiontype_params = Parser.opt AnnParser.parse_paramlist];
+        [%l functiontype_type_params = Frontend.Parser.opt AnnParser.parse_type_params_free];
+        [%l functiontype_params = Frontend.Parser.opt AnnParser.parse_paramlist];
         (_, Kwd "@*/");
         [%l () = parse_end]
       ] ->
@@ -186,8 +186,8 @@ module Make (Args: Fe_sig.CXX_TRANSLATOR_ARGS) = struct
     in
     (* create a lexer for an #include directive *)
     let make_real_file_lexer path include_paths ~inGhostRange =
-      let text = Lexer.readFile path in
-      Lexer.make_lexer (Parser.common_keywords @ Parser.c_keywords) Parser.ghost_keywords path text Args.report_range ~inGhostRange Args.report_should_fail
+      let text = Frontend.Lexer.readFile path in
+      Frontend.Lexer.make_lexer (Frontend.Parser.common_keywords @ Frontend.Parser.c_keywords) Frontend.Parser.ghost_keywords path text Args.report_range ~inGhostRange Args.report_should_fail
     in
     let make_lexer p include_paths ~inGhostRange =
       if p = path then make_virtual_file_lexer ann (* lex the 'virtual' file that contains the given annotation *)
@@ -197,8 +197,8 @@ module Make (Args: Fe_sig.CXX_TRANSLATOR_ARGS) = struct
       let loc, token_stream = make_sound_preprocessor_core Args.report_macro_call make_lexer path Args.verbose Args.include_paths Args.data_model_opt Args.define_macros ghost_macros included_files in
       let parse_virtual_c_file = function%parser
       [
-        [%l headers, header_names = Parser.parse_include_directives_core Args.verbose Args.enforce_annotations Args.data_model_opt active_headers];
-        [%l ds = Parser.parse_decls VF.CLang Args.data_model_opt Args.enforce_annotations ~inGhostHeader:false];
+        [%l headers, header_names = Frontend.Parser.parse_include_directives_core Args.verbose Args.enforce_annotations Args.data_model_opt active_headers];
+        [%l ds = Frontend.Parser.parse_decls VF.CLang Args.data_model_opt Args.enforce_annotations ~inGhostHeader:false];
         [%l () = parse_end]
       ] -> 
         match ds with
