@@ -17,4 +17,4 @@
   (:schema ast_exporter/stubs/stubs_ast.capnp))
  (targets stubs_ast.ml stubs_ast.mli)
  (action
-  (run capnp compile -o ocaml %{schema})))
+  (run capnp compile -I %{bin:capnp}/../../include -o ocaml %{schema})))
