@@ -1,6 +1,8 @@
 (rule
  (alias gen_c_linemarks)
- (enabled_if %{lib-available:lablgtk2.sourceview2})
+ (enabled_if
+  (and %{lib-available:lablgtk2.sourceview2} %{bin-available:valac}))
+ (mode promote)
  (deps linemarks.vala mystuff.vapi)
  (targets linemarks.c linemarks.h)
  (action
