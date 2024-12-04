@@ -567,6 +567,8 @@ let make_lexer_core keywords ghostKeywords startpos text reportRange inComment i
         if c = '\013' && !textpos + 1 < textlength && text.[!textpos + 1] = '\010' then incr textpos;
         text_junk ();
         new_line old_line old_column
+    | 'L' when text_peekn 1 = '\'' ->
+      error "Wide character literals are not supported"
     | ('A'..'Z' | 'a'..'z' | '_' | '\128'..'\255') as c ->
         start_token();
         text_junk ();
